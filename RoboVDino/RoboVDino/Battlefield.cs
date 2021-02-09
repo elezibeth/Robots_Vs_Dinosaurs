@@ -50,23 +50,24 @@ namespace RoboVDino
                  herdPlayer1.HerdTurn();
                  fleetPlayer2.TakeHit();
         }
-        public void PleyerTwoTurn()
+        public void PlayerTwoTurn()
         {
-            
-
+            fleetPlayer2.FleetTurn();
+            herdPlayer1.TakeHit();
         }
+       
+
         public void Battle()//do while loop.....
         {
-
+            //bool swap turns
             while (fleetPlayer2.fleet.Count >= 1 && herdPlayer1.dinosaurHerd.Count >= 1)
             {
                 //bool
                 PlayerOneTurn();
+                PlayerTwoTurn();
 
-                
-                //fleetplayer2.fleetturn(
-                //herdplayer2.takehit
             }
+
             if(fleetPlayer2.fleet.Count == 0 || herdPlayer1.dinosaurHerd.Count == 0)
             {
                 EndGame();

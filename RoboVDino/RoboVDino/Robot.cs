@@ -23,17 +23,18 @@ namespace RoboVDino
             twentyMMRounds = new Weapon("20 mm round", 25);
             lifeStatus = true;
         }
-       
-       //cando method
 
-        public void AttackDinosaur(Dinosaur dinosaur)
+        //cando method
+
+        public void AttackDinosaur()
         {
             //subtract health level from dinosaur
-            dinosaur.GetAttackedByRobot();
+            twentyMMRounds.UseWeaponToAttack();
             //display power level of attacking robot with a method
             //subtract power from robot
             SubtractPower();
             DisplayPowerLevel();
+            CheckLifeStatus();
             //decide whether or not to kill robot
 
         }
@@ -61,7 +62,7 @@ namespace RoboVDino
         {
             Console.WriteLine($"This Robot's health is at {percentageHealth}%");
         }
-        
+
         public bool CheckLifeStatus()
         {
             if (powerLevel == 0 || percentageHealth == 0)
@@ -77,9 +78,13 @@ namespace RoboVDino
             }
 
         }
-
-
-
-
     }
+
+   
+
+
+
 }
+
+    
+

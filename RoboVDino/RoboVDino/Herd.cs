@@ -20,9 +20,9 @@ namespace RoboVDino
         public Herd()
         {
             dinosaurHerd = new List<Dinosaur>();
-            liz = new Dinosaur("Pteredactle", 100, 100, 25);
-            jen = new Dinosaur("T-Rex", 100, 100, 25);
-            fox = new Dinosaur("Brontosaurus", 100, 100, 25);
+            liz = new Dinosaur("Liz", "Pteredactle", 100, 100, 25);
+            jen = new Dinosaur("Jen", "T-Rex", 100, 100, 25);
+            fox = new Dinosaur("Fox", "Brontosaurus", 100, 100, 25);
             AddDinosToList();
 
         }
@@ -36,9 +36,38 @@ namespace RoboVDino
 
         }
 
-        
-        //methods
 
+        //methods
+        public void TakeHit()
+        {
+
+            if (dinosaurHerd.Count >= 0)
+            {
+                DisplayDinosaurName();
+                dinosaurHerd[0].GetAttackedByRobot();//////////////////////////////////////////////
+                BenchDinosaurs();
+            }
+            else
+            {
+                Console.WriteLine("Robots are out. Attacking is senseless.");
+            }
+
+
+
+        }
+        public void DisplayDinosaurName()
+        {
+            if (dinosaurHerd.Count >= 1)
+            {
+                Console.WriteLine(dinosaurHerd[0].name);
+            }
+            else
+            {
+                Console.WriteLine("Dinosaurs have no capacity to fight anymore.");
+            }
+
+
+        }
         public void KillDinosaur(Dinosaur dinosaur)
         {
             
@@ -68,6 +97,7 @@ namespace RoboVDino
 
             //if selected dinosaur is dead, run choose dino again., 
             BenchDinosaurs();
+            
             
             
 

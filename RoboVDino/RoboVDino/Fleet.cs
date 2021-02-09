@@ -13,8 +13,9 @@ namespace RoboVDino
         public Robot fred;
         public Robot bill;
         public bool lifeStatus;
+        public string robotChoice;
 
-
+        //constructor
         public Fleet()
         {
             fleet = new List<Robot>();
@@ -26,6 +27,7 @@ namespace RoboVDino
 
 
         }
+        //methods
         public void AddRobotsToFleet()
         {
             fleet.Add(ted);
@@ -43,10 +45,15 @@ namespace RoboVDino
             }
             
         }
-        public void FleetTurn()
-            //-- run attack
+        public void FleetTurn()//////////////////////////////////////////////////////////////////////////////
+            
         {
-            //writeline
+            
+            DisplayRobotsInList();
+            ChooseRobotFromList();////////////////////
+            // returns string robotChoice
+            ChooseRobot(); //use string robotChoice for switch case
+            
             //display available robots in list
             //choose robot from list via 1,2, or 3, press enter
             //switch case (choose robot)
@@ -62,23 +69,28 @@ namespace RoboVDino
             //run kill dinosaur
         }
 
-        public void TakeHit()
+        public void DisplayRobotsInList()
         {
-           
-            if(fleet.Count >= 0)
+            if (fleet.Count() == 3)
             {
-                DisplayRobotName();
-                fleet[0].GetAttackedByDinosaur();
-                DisableRobot();
+
+                Console.WriteLine($"The robots available to your are 1. Ted, 2. Fred, and 3. Bill. Please type '1', '2', or '3' and press enter.");
             }
-            else
+            if (fleet.Count() == 2)
             {
-                Console.WriteLine("Robots are out. Attacking is senseless.");
+                Console.WriteLine("You've got two dinosaurs left. Just pick '1' or '2' and let's get on with it.");
             }
-
-
-           
+            if (fleet.Count() == 1)
+            {
+                Console.WriteLine("No one gets out alive. Select '1'.");
+            }
         }
+        public void ChooseRobotFromList()
+        {
+            robotChoice = Console.ReadLine();
+
+        }
+
         public void DisplayRobotName()
         {
             if (fleet.Count >= 1)
@@ -91,12 +103,31 @@ namespace RoboVDino
             }
 
 
-        }   
-            
-        
+        }
+
+
+
+        public void TakeHit()
+        {
+
+            if (fleet.Count >= 0)
+            {
+                DisplayRobotName();
+                fleet[0].GetAttackedByDinosaur();
+                DisableRobot();
+            }
+            else
+            {
+                Console.WriteLine("Robots are out. Attacking is senseless.");
+            }
+
+
+
+        }
+
         public void DisableRobot()
         {
-            if(bill.percentageHealth == 0)
+            if (bill.percentageHealth == 0)
             {
                 fleet.Remove(bill);
                 Console.WriteLine("Bill is now scrap metal.");
@@ -111,12 +142,94 @@ namespace RoboVDino
                 fleet.Remove(fred);
                 Console.WriteLine("Fred is now scrap metal.");
             }
+
         }
+
+        public void ChooseRobot()
+        {
+            switch (robotChoice)
+            {
+                case "1":
+                    Console.WriteLine("Robot Ted will attack!");
+                    
+                    if (ted.CheckLifeStatus() == true)/////////////////////////////////////////////////////////////
+                    {
+                        ted.AttackDinosaur();
+                    }
+
+
+                    break;
+                case "2":
+                    Console.WriteLine("Robot Fred will attack!");
+                    
+                    // fred attacks dinosaur
+
+                    if (fred.CheckLifeStatus() == true)
+                    {
+                        fred.AttackDinosaur();
+                    }
+
+                    break;
+                case "3":
+                    Console.WriteLine("Checking if Bill can attack!");
+                    
+                    bool alive = bill.CheckLifeStatus();
+                    if (alive == true)
+                    {
+                        bill.AttackDinosaur();
+                    }
+
+                    break;
+                default:
+                    Console.WriteLine("invalid choice. A Robot will be selected unless it breaks the program. Please don't do that again. ");
+                    if (bill.CheckLifeStatus() == true)
+                    {
+                        bill.AttackDinosaur();
+                    }
+                    if (ted.CheckLifeStatus() == true)
+                    {
+                        ted.AttackDinosaur();
+                    }
+                    if (fred.CheckLifeStatus()== true)
+                    {
+                        fred.AttackDinosaur();
+                    }
+                    else
+                    {
+                        Console.WriteLine("Robots have no more moves. You have lost.");
+
+                    }
+                    
+
+                    break;
+
+            }
+          
+
+
+           
+        
+          
+                
+
+
+
+        }
+
+        
+
+        
+            
+        
+        
+        
+           
+     }
         
             
         
         
         
 
-    }
 }
+

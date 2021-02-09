@@ -11,13 +11,14 @@ namespace RoboVDino
 
         //member
         public string type;
+        public string name;
         public int health;
         public int energy;
         
         public int attackPower;
         public bool aliveStatus;
 
-        public Dinosaur(string type, int health, int energy, int attackPower)
+        public Dinosaur(string name, string type, int health, int energy, int attackPower)
         {
             this.type = type;
             this.health = health;
@@ -32,7 +33,7 @@ namespace RoboVDino
 
         //can do methods
 
-        public void GetAttackedByRobot()
+        public void GetAttackedByRobot()// used in Herd class by TakeHit()
         {
             //subtract health from dinosaur
             DepleteHealth();

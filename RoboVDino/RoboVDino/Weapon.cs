@@ -21,6 +21,12 @@ namespace RoboVDino
 
             
         }
+
+        //method
+        public void UseWeaponToAttack()
+        {
+            Console.WriteLine("20 mm rounds dispensed in 5 second bursts. Deals -25 damage to health of Dinsoaur.");
+        }
         
     }
 }
