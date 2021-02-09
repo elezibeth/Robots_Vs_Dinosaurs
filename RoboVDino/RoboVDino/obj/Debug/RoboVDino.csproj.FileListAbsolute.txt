@@ -1,0 +1,7 @@
+C:\Users\Elezibeth\source\repos\RoboVDino\RoboVDino\bin\Debug\RoboVDino.exe.config
+C:\Users\Elezibeth\source\repos\RoboVDino\RoboVDino\bin\Debug\RoboVDino.exe
+C:\Users\Elezibeth\source\repos\RoboVDino\RoboVDino\bin\Debug\RoboVDino.pdb
+C:\Users\Elezibeth\source\repos\RoboVDino\RoboVDino\obj\Debug\RoboVDino.csprojAssemblyReference.cache
+C:\Users\Elezibeth\source\repos\RoboVDino\RoboVDino\obj\Debug\RoboVDino.csproj.CoreCompileInputs.cache
+C:\Users\Elezibeth\source\repos\RoboVDino\RoboVDino\obj\Debug\RoboVDino.exe
+C:\Users\Elezibeth\source\repos\RoboVDino\RoboVDino\obj\Debug\RoboVDino.pdb
